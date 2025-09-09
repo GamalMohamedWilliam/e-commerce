@@ -60,15 +60,16 @@ export default function ProductItem({ product }: Props) {
         </div>
       </div>
 
-      {/* ✅ الزرار يبان بس عند hover */}
+      {/* الزرار: ظاهر دايمًا على الموبايل / يظهر بالهوفر من أول md */}
       <div
         className="
     absolute inset-x-0 bottom-0 h-14
-    translate-y-full opacity-0
-    group-hover:translate-y-0 group-hover:opacity-100
+    bg-white border-t flex items-center justify-center
     transition-all duration-300
-    bg-white border-t
-    flex items-center justify-center
+
+    translate-y-0 opacity-100          /* موبايل: ظاهر دائمًا */
+    md:translate-y-full md:opacity-0    /* من أول md يختفي */
+    md:group-hover:translate-y-0 md:group-hover:opacity-100
   "
       >
         <ProductitemBtn
@@ -76,6 +77,7 @@ export default function ProductItem({ product }: Props) {
           className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md shadow"
         />
       </div>
+
 
     </div>
   )
