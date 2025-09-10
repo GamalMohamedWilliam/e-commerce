@@ -1,8 +1,5 @@
-
-
 import type { StaticImageData } from "next/image";
 
-// ---------- imports بالمسميات الموجودة عندك ----------
 import imgi_1_1678286824747  from "@/assets/brands/imgi_1_1678286824747.png";   // Canon
 import imgi_2_1678286767914  from "@/assets/brands/imgi_2_1678286767914.png";   // DELL
 import imgi_3_1678286730980  from "@/assets/brands/imgi_3_1678286730980.png";   // Lenovo
@@ -14,11 +11,11 @@ import imgi_8_1678286502288  from "@/assets/brands/imgi_8_1678286502288.png";   
 import imgi_9_1678286465856  from "@/assets/brands/imgi_9_1678286465856.png";   // OPPO
 import imgi_10_1678286421517 from "@/assets/brands/imgi_10_1678286421517.png";  // HUAWEI
 import imgi_11_1678286391415 from "@/assets/brands/imgi_11_1678286391415.png";  // Apple
-import imgi_12_1678286366797 from "@/assets/brands/imgi_12_1678286366797.png";  // Mi (Xiaomi)
+import imgi_12_1678286366797 from "@/assets/brands/imgi_12_1678286366797.png";  // Mi
 
 import imgi_13_1678286321029 from "@/assets/brands/imgi_13_1678286321029.png";  // SAMSUNG
 import imgi_14_1678286281363 from "@/assets/brands/imgi_14_1678286281363.png";  // JACK&JONES
-import imgi_15_1678286238428 from "@/assets/brands/imgi_15_1678286238428.png";  // LC WAIKIKI
+import imgi_15_1678286238428 from "@/assets/brands/imgi_15_1678286238428.png";  // LC Waikiki
 import imgi_16_1678286204060 from "@/assets/brands/imgi_16_1678286204060.png";  // Andora
 import imgi_17_1678286172219 from "@/assets/brands/imgi_17_1678286172219.png";  // PUMA
 import imgi_18_1678286142113 from "@/assets/brands/imgi_18_1678286142113.png";  // SKECHERS
@@ -47,7 +44,6 @@ import imgi_38_1678285065497 from "@/assets/brands/imgi_38_1678285065497.png";  
 import imgi_39_1678285025559 from "@/assets/brands/imgi_39_1678285025559.png";  // L'Oréal
 import imgi_40_1678284642946 from "@/assets/brands/imgi_40_1678284642946.png";  // Maybelline
 
-// ---------- الماب بالاسم المعروض → الصورة ----------
 export const BRAND_IMAGES: Record<string, StaticImageData> = {
   Canon: imgi_1_1678286824747,
   DELL: imgi_2_1678286767914,
@@ -60,7 +56,7 @@ export const BRAND_IMAGES: Record<string, StaticImageData> = {
   OPPO: imgi_9_1678286465856,
   HUAWEI: imgi_10_1678286421517,
   Apple: imgi_11_1678286391415,
-  Mi: imgi_12_1678286366797,           // Xiaomi
+  Mi: imgi_12_1678286366797,
 
   SAMSUNG: imgi_13_1678286321029,
   "JACK&JONES": imgi_14_1678286281363,
@@ -95,4 +91,4 @@ export const BRAND_IMAGES: Record<string, StaticImageData> = {
 };
 
 export const BRAND_LIST = Object.keys(BRAND_IMAGES);
-export const DEFAULT_BRAND_IMAGE = imgi_11_1678286391415; // Apple كافتراضي
+export const DEFAULT_BRAND_IMAGE = imgi_11_1678286391415; // Apple
