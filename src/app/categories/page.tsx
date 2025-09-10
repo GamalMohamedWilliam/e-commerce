@@ -14,13 +14,24 @@ import img10 from "@/assets/categories/imgi_10_1681511121316.png";
 
 export const revalidate = 60;
 
+// نقرأ أي واحد فيهم، ولو مش موجودين نستخدم string فاضي
+const API_BASE = process.env.NEXT_PUBLIC_API ?? process.env.API ?? "";
+
 type Category = { _id: string; name: string; slug?: string | null };
 
 async function getCategories(): Promise<Category[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/categories`, { next: { revalidate: 60 } });
-  if (!res.ok) throw new Error("Failed to load categories");
-  const payload = await res.json();
-  return (payload?.data ?? []) as Category[];
+  // لو الـ env ناقص وقت البيلد، رجّع فاضي بدل ما البيلد يقع
+  if (!API_BASE) return [];
+
+  try {
+    const res = await fetch(`${API_BASE}/categories`, { next: { revalidate: 60 } });
+    if (!res.ok) return [];
+    const payload = await res.json();
+    return (payload?.data ?? []) as Category[];
+  } catch {
+    // أي مشكلة شبكة/تايم أوت وقت البيلد → رجّع فاضي
+    return [];
+  }
 }
 
 const IMG_BY_NAME: Record<string, StaticImageData> = {
