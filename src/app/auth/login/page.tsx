@@ -98,21 +98,23 @@ export default function LoginPage() {
           )}
 
           <Button
-            className="bg-main hover:bg-main"
+            className="w-full bg-main hover:bg-main"
             type="submit"
             disabled={isSubmitting}
             aria-busy={isSubmitting}
           >
             {isSubmitting ? 'Logging in…' : 'Login'}
           </Button>
+
         </form>
       </Form>
 
-      <div className="text-center mt-4">
-        <Button onClick={handleGitHubSignIn}>
+      <div className="text-center mt-4 w-2/3 mx-auto">
+        <Button onClick={handleGitHubSignIn} className="w-full">
           LogIn with GITHUB <i className="fa-brands fa-github ml-2" />
         </Button>
       </div>
+
     </>
   );
 }
