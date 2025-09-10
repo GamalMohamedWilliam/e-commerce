@@ -12,19 +12,18 @@ interface Props {
 export default function ProductItem({ product }: Props) {
   return (
     <div
-      className="group relative border rounded-lg p-2 shadow
-               flex flex-col justify-between hover:border-green-500
-               transition-colors overflow-hidden min-h-[440px]"
+      className="group relative border border-transparent rounded-lg p-2 shadow
+                 flex flex-col justify-between hover:border-green-500 hover:shadow-lg
+                 transition-all duration-300 ease-in-out overflow-hidden min-h-[440px]"
     >
-      {/* 👇 القلب فوق على اليمين */}
+      {/* القلب */}
       <Heartitem product={product} className="absolute top-3 right-3 z-10" />
-
-
 
       {/* محتوى الكارت */}
       <div className="p-3 productCard pb-16">
         <Link href={`/product/${product._id}/${product.category._id}`} className="block">
           <span className="text-main">{product.category.name}</span>
+
           <div className="w-full h-56 my-2">
             <Image
               width={300}
@@ -34,6 +33,7 @@ export default function ProductItem({ product }: Props) {
               alt={product.title}
             />
           </div>
+
           <h3 className="font-bold text-lg line-clamp-1">{product.title}</h3>
         </Link>
 
@@ -45,8 +45,7 @@ export default function ProductItem({ product }: Props) {
 
           <div className="mt-1">
             <p
-              className={`text-main font-bold ${product.priceAfterDiscount ? 'line-through' : ''
-                }`}
+              className={`text-main font-bold ${product.priceAfterDiscount ? 'line-through' : ''}`}
             >
               {product.price} EGP
             </p>
@@ -60,25 +59,22 @@ export default function ProductItem({ product }: Props) {
         </div>
       </div>
 
-      {/* الزرار: ظاهر دايمًا على الموبايل / يظهر بالهوفر من أول md */}
+      {/* زرار الإضافة: ظاهر دائمًا على الموبايل ويظهر بالهوفر من أول md */}
       <div
         className="
-    absolute inset-x-0 bottom-0 h-14
-    bg-white border-t flex items-center justify-center
-    transition-all duration-300
-
-    translate-y-0 opacity-100          /* موبايل: ظاهر دائمًا */
-    md:translate-y-full md:opacity-0    /* من أول md يختفي */
-    md:group-hover:translate-y-0 md:group-hover:opacity-100
-  "
+          absolute inset-x-0 bottom-0 h-14
+          bg-white flex items-center justify-center
+          transition-all duration-300
+          translate-y-0 opacity-100              /* موبايل: ظاهر دائمًا */
+          md:translate-y-full md:opacity-0        /* من أول md يختفي */
+          md:group-hover:translate-y-0 md:group-hover:opacity-100
+        "
       >
         <ProductitemBtn
           id={product._id}
           className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md shadow"
         />
       </div>
-
-
     </div>
   )
 }
